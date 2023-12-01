@@ -1,0 +1,50 @@
+@use 'variables' as * ;
+
+.container {
+  min-height: 90dvh;
+  min-width: 90dvw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-container {
+  padding: calc($base-height-rem * 4);
+}
+
+.theme {
+  text-align: center;
+  font-size: calc($base-height-rem * 3);
+
+  span {
+    color: $main-color;
+  }
+}
+
+.word-container {
+  font-family: "Ubuntu", sans-serif;
+  font-size: calc($base-height-rem * 5);
+  padding: calc($base-height-rem * 3);
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: calc($base-height-rem * 2);
+  justify-content: center;
+  align-content: center;
+
+  .button {
+    font-size: calc($base-height-rem * 3);
+    padding: $base-height-rem;
+    border-radius: $base-height-rem;
+    background: none;
+  }
+
+  .color-red {
+  }
+
+  .color-green {
+
+  }
+}

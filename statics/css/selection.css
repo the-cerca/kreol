@@ -1,0 +1,241 @@
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 300;
+  src: url("../fonts/ubuntu-bold-webfont.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Ubuntu medium";
+  font-weight: 300;
+  src: url("../fonts/ubuntu-medium-webfont.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Ubuntu regular";
+  font-weight: 300;
+  src: url("../fonts/ubuntu-regular-webfont.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto thin";
+  font-weight: 300;
+  src: url("../fonts/roboto-thin-webfont.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto light";
+  font-weight: 300;
+  src: url("../fonts/roboto-light-webfont.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: url("../fonts/roboto-regular-webfont.woff2") format("woff2");
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header #home-link {
+  margin: 0.75rem;
+}
+.header #home-link img {
+  width: 1.25rem;
+}
+.header .hamberger {
+  border: none;
+  display: inline-block;
+  margin-right: 1.5rem;
+  align-self: center;
+  background-image: url("../images/hamberger-menu.svg");
+  background-size: cover;
+  width: 1rem;
+  aspect-ratio: 1;
+  background-color: white;
+  transition: 300ms;
+}
+.header .hamberger[data-close=true] {
+  background-image: url("../images/close-hamberger.svg");
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.navigation ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff6eb;
+  position: fixed;
+  top: 2.8rem;
+  left: -100%;
+  text-align: center;
+}
+.navigation ul li {
+  width: 100%;
+  padding: 0.5rem;
+}
+.navigation ul li:hover {
+  background: rgb(252, 167, 57);
+}
+.navigation ul[data-visible=true] {
+  left: 0;
+  z-index: 100;
+}
+
+@media screen and (min-width: 1024px) {
+  .navigation .hamberger {
+    display: none;
+    background: yellow;
+  }
+  .navigation ul {
+    flex-direction: row;
+    background: none;
+    position: static;
+    align-items: center;
+    justify-content: end;
+    gap: 0.5rem;
+  }
+  .navigation ul li {
+    width: initial;
+    border: none;
+    padding: 0;
+  }
+  .navigation ul .connexion {
+    border: 1px solid rgb(252, 167, 57);
+    border-radius: 0.5rem;
+    padding: 5px;
+  }
+  .navigation ul .left {
+    margin: auto;
+    border: none;
+    text-decoration: underline;
+  }
+  .navigation ul .connexion1 {
+    background: rgb(252, 167, 57);
+    border: 1px solid black;
+    margin-right: 1.5rem;
+  }
+}
+.navigation ul .account {
+  margin-right: 1.5rem;
+  border: 1px solid rgb(252, 167, 57);
+  padding: 5px;
+  border-radius: 8px;
+}
+.navigation ul .account:hover {
+  background-color: rgb(252, 167, 57);
+}
+
+section {
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selection {
+  max-width: 25rem;
+  border: 1px solid black;
+  min-width: 16rem;
+  min-height: 16rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.selection ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.selection ul li {
+  text-align: center;
+  padding: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid rgba(132, 129, 129, 0.5);
+  display: flex;
+  align-items: center;
+}
+.selection ul li:hover {
+  border: 1px solid rgb(252, 167, 57);
+}
+.selection ul li:active {
+  background: rgb(252, 167, 57);
+}
+.selection ul li p {
+  margin: auto;
+}
+.selection ul li .circle {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+}
+.selection ul li .circle-red {
+  background: red;
+}
+.selection ul li .circle-orange {
+  background: orange;
+}
+.selection ul li .circle-green {
+  background: green;
+}
+
+.parcours h1 {
+  font-family: "Ubuntu", serif;
+  font-size: 1rem;
+}
+.parcours .wrapper-status {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.parcours .wrapper-status .status {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+.parcours .wrapper-status .status p {
+  font-size: 0.5rem;
+}
+.parcours .wrapper-status .status .circle {
+  width: 0.7rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.parcours .wrapper-status .status .circle-red {
+  background: red;
+}
+.parcours .wrapper-status .status .circle-orange {
+  background: orange;
+}
+.parcours .wrapper-status .status .circle-green {
+  background: green;
+}
+
+@media screen and (min-width: 1024px) {
+  .selection {
+    width: 25rem;
+    aspect-ratio: 1;
+  }
+}/*# sourceMappingURL=selection.css.map */

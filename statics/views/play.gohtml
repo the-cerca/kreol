@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/play.css">
+    <title>Document</title>
+</head>
+<body>
+{{template "connected-nav"}}
+<p> {{.Theme}} </p>
+<button hx-post="/play/{{.Play.ID}}" hx-swap="none"> {{.Play.Word}}</button>
+{{template "js-nav"}}
+{{template "htmx"}}
+</body>
+</html>

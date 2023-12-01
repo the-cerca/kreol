@@ -1,0 +1,52 @@
+{{define "navigation-bar"}}
+<header class="header">
+    <a href="/" id="home-link" aria-label="Retour à l'accueil">
+        <img src="../static/images/logo.svg" alt="Logo de la compagnie">
+    </a>
+    <nav class="navigation" aria-expanded="false">
+        <button aria-controls="navigation-ul" class="hamberger" aria-label="Menu" data-close="false"></button>
+        <ul data-visible="false" id="navigation-ul">
+            <li class="left connexion"><a href="/">Accueil</a></li>
+            <li class="connexion connexion2"><a href="/signin">S'inscrire</a></li>
+            <li class="connexion connexion1"><a href="/login">Se connecter</a></li>
+        </ul>
+    </nav>
+</header>
+{{end}}
+
+{{define "connected-nav"}}
+<header class="header">
+    <a href="/" id="home-link" aria-label="Retour à l'accueil">
+        <img src="../static/images/logo.svg" alt="Logo de la compagnie">
+    </a>
+    <nav class="navigation" aria-expanded="false">
+        <button aria-controls="navigation-ul" class="hamberger" aria-label="Menu" data-close="false"></button>
+        <ul data-visible="false" id="navigation-ul">
+          <li class="account"> <a href="/account"> mon compte </a></li>
+        </ul>
+    </nav>
+</header>
+{{end}}
+
+
+{{ define "js-nav"}}
+<script>
+    const toggleSideBar = document.querySelector(".hamberger")
+    const ulNav = document.querySelector("#navigation-ul")
+    toggleSideBar.addEventListener("click", () => {
+        let visible = ulNav.getAttribute("data-visible");
+        if (visible === "false") {
+            ulNav.setAttribute("data-visible", "true")
+            toggleSideBar.setAttribute("data-close", "true")
+        } else {
+            ulNav.setAttribute("data-visible", "false")
+            toggleSideBar.setAttribute("data-close", "false")
+        }
+        console.log("visibility :", visible)
+    })
+</script>
+{{end}}
+
+{{define "htmx"}}
+      <script src="../static/javascript/htmx.min.js"></script>
+{{end}}

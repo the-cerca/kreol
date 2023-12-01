@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connectez sur Kreol pour un apprentissage du créole.">
+    <link rel="stylesheet" href="../static/css/sign_css.css">
+
+    <title>Se connecter à Kreol - Plateforme d'apprentissage du créole</title>
+
+</head>
+
+<body>
+    {{template "navigation-bar"}}
+    <section class="container">
+        <div class="illustration" role="img" aria-label="Illustration décorative">
+            <img src="../static/images/bg.svg" alt="Fond avec motifs créoles">
+        </div>
+        <main class="main">
+            <header class="top">
+                <h1 class="title">Se connectez à Kreol</h1>
+                <nav class="socials" aria-label="Connexion via réseaux sociaux">
+                    <div class="social_group" role="group" aria-label="Options de connexion">
+                        <a href="#" aria-label="Se connecter avec Microsoft">
+                            <img src="../static/images/Microsoft.svg" alt="Logo Microsoft" class="login_logo">
+                        </a>
+                        <a href="#" aria-label="Se connecter avec Apple">
+                            <img src="../static/images/Apple.svg" alt="Logo Apple" class="login_logo">
+                        </a>
+                        <a href="#" aria-label="Se connecter avec Google">
+                            <img src="../static/images/Google.svg" alt="Logo Google" class="login_logo">
+                        </a>
+                    </div>
+                    <div class="line" aria-hidden="true"></div>
+                </nav>
+            </header>
+            <section class="box_form" aria-label="Formulaire de connexion">
+                <form action="/login" method="post" class="form_group" id="form_group" aria-labelledby="formTitle">
+                    <h2 id="formTitle" class="visually-hidden">Formulaire de connexion</h2>
+                    <div class="group_field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="johndoe@gmail.com" id="email" minlength="3"
+                            class="input_field" autocomplete="email" aria-required="true">
+                    </div>
+                    <div class="group_field">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" placeholder="*************" id="password" minlength="3"
+                            class="input_field" autocomplete="current-password" aria-required="true">
+                        {{if .Errors.password}}
+                        <span style="color: red;text-align: center"><i>{{.Errors.password}}</i></span>
+                        {{end}}
+                    </div>
+                    <input type="submit" value="Se connecter" class="submit">
+                </form>
+            </section>
+        </main>
+    </section>
+    {{template "js-nav"}}
+</body>
+
+</html>

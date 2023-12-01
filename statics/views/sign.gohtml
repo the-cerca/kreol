@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Connectez sur Kreol pour un apprentisage du créole." />
+    <link rel="stylesheet" href="../static/css/sign_css.css" />
+    <title>Se connecter</title>
+</head>
+
+<body>
+    {{template "navigation-bar"}}
+    <section class="container">
+        <div class="illustration" aria-hidden="true">
+            <img src="../static/images/bg.svg" alt="Fond décoratif" />
+        </div>
+        <div class="main">
+            <div class="top">
+                <h1 class="title">Se connectez</h1>
+                <div class="socials">
+                    <div class="social_group" aria-label="Se connecter avec un compte de réseaux sociaux">
+                        <a href="#" aria-label="Se connecter avec Microsoft">
+                            <img src="../static/images/Microsoft.svg" alt="Microsoft login" class="login_logo" />
+                        </a>
+                        <a href="#" aria-label="Se connecter avec Apple">
+                            <img src="../static/images/Apple.svg" alt="apple log in" class="login_logo" />
+                        </a>
+                        <a href="#" aria-label="Se connecter avec Google">
+                            <img src="../static/images/Google.svg" alt="google log in" class="login_logo" />
+                        </a>
+                    </div>
+                    <div class="line" role="separator" aria-label="ou"></div>
+                </div>
+            </div>
+            <div class="box_form">
+                <form action="/signin" method="post" class="form_group" id="form_group" aria-labelledby="formTitle">
+                    <h2 id="formTitle" class="visually-hidden">Formulaire d'inscription</h2>
+                    <div class="group_field">
+                        <label for="username">Prénom</label>
+                        <input type="text" name="username" placeholder="john doe" id="username" minlength="3"
+                            class="input_field" autocomplete="nickname" />
+                    </div>
+                    <div class="group_field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="johndoe@gmail.com" id="email" minlength="3"
+                            class="input_field" autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                        {{if .Errors.email}}
+                        <span style="color: red; text-align: center;"> <i>{{.Errors.email}}</i></span>
+                        {{end}}
+                    </div>
+                    <div class="group_field">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" placeholder="*************" id="password" minlength="3"
+                            class="input_field" autocomplete="current-password" />
+
+                    </div>
+                    <div class="group_field">
+                        <label for="repeat-password">Répéter le mot de passe</label>
+                        <input type="password" name="repeat-password" placeholder="*************" id="repeat-password"
+                            minlength="8" class="input_field" autocomplete="new-password" />
+                        {{if .Errors.password}}
+                        <span style="color: red;text-align: center;"><i> {{.Errors.password}} </i></span>
+                        {{end}}
+                    </div>
+                    <input type="submit" value="S'inscrire" class="submit" aria-label="S'inscrire sur Kreol" />
+                </form>
+            </div>
+        </div>
+    </section>
+    {{template "js-nav"}}
+</body>
+
+</html>

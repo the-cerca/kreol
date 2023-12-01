@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/selection.css">
+    <title>Document</title>
+</head>
+
+<body>
+    {{template "connected-nav"}}
+    <section>
+        <div class="selection">
+            <div class="parcours">
+                <h1>Selectionnez votre parcours</h1>
+                <div class="wrapper-status">
+                    <div class="status">
+                        <span class="circle circle-green"></span>
+                        <p>Disponible</p>
+                    </div>
+                    <div class="status">
+                        <span class="circle circle-orange"></span>
+                        <p>En cours</p>
+                    </div>
+                    <div class="status">
+                        <span class="circle circle-red"></span>
+                        <p>Indisponible</p>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                {{range . }}
+                <li hx-post="/lang/selection/{{if or (eq .Status "pending") (eq .Status "unavailable"
+                    )}}#{{else}}{{.ID}}{{end}}" hx-swap="none">
+                    <p>{{.Name}}</p>
+                    <span class="circle {{if eq .Status "available"}} circle-green {{else if eq .Status "pending"
+                        }}circle-orange{{else}}circle-red {{end}}"></span>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+    </section>
+    {{template "js-nav"}}
+    {{template "htmx"}}
+</body>
+
+</html>

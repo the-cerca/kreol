@@ -1,0 +1,154 @@
+// SCSS using imported with @use
+@use 'variables' as *;
+
+.container {
+  height: 100dvh; // Non-standard unit kept as per your request
+  width: 100dvw; // Non-standard unit kept as per your request
+
+  .illustration {
+    display: none;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    text-align: center;
+    font-size: calc($base-height-rem * 3);
+    padding: calc($base-height-rem * 3);
+    font-family: "Ubuntu medium", sans-serif;
+  }
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .social_group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $base-height-rem;
+  }
+
+  .line {
+    background-color: black;
+    height: 1px;
+    min-width: calc($base-height-rem * 34);
+    margin: auto;
+  }
+}
+
+a {
+  .login_logo {
+    height: calc($base-height-rem * 10);
+  }
+}
+
+.box_form {
+  margin: auto 0;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  gap: calc($base-height-rem * 2);
+
+  .visually-hidden {
+    display: none;
+  }
+}
+
+.group_field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 calc($base-height-rem * 1.5);
+
+  .input_field {
+    margin-top: $base-height-rem;
+    min-height: calc($base-height-rem * 4);
+    border: $border-pixel solid;
+    border-radius: 5px;
+  }
+}
+
+.input_field {
+  text-align: center;
+}
+
+.submit {
+  width: min-content;
+  padding: calc($base-height-rem * 1.5);
+  border-radius: 10px;
+  align-self: center;
+  border: none;
+  margin-bottom: 0.5rem;
+  background-color: $main-color;
+}
+
+// Media Queries
+@media screen and (min-width: 768px) {
+  .container {
+    background: $blue-bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main {
+    height: calc($base-height-rem * 70);
+    width: calc($base-height-rem * 60);
+    background: $white-color;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: -35px 30px 0px 3px $main-color;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .socials {
+    .line {
+      min-width: calc($base-height-rem * 24);
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    overflow: hidden;
+    background-color: $white-color;
+
+    .illustration {
+      display: block;
+      background-color: $blue-bg;
+    }
+
+    .main {
+      transform: translateX(-4.5rem);
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    overflow: hidden;
+    background-color: $white-color;
+    width: fit-content;
+
+    .illustration {
+      display: block;
+      background-color: $blue-bg;
+    }
+  }
+}
+

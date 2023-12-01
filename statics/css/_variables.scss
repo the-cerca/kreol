@@ -1,0 +1,181 @@
+$base-height-rem: 0.5rem;
+$main-color: rgba(252, 167, 57, 1);
+$white-color: rgba(255, 255, 255, 1);
+$blue-bg: rgba(201, 254, 250, 1);
+$orange-white: #fff6eb;
+$border-pixel: 1px;
+// Tailwind CSS Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 300;
+  src: url("../fonts/ubuntu-bold-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Ubuntu medium";
+  font-weight: 300;
+  src: url("../fonts/ubuntu-medium-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Ubuntu regular";
+  font-weight: 300;
+  src: url("../fonts/ubuntu-regular-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto thin";
+  font-weight: 300;
+  src: url("../fonts/roboto-thin-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto light";
+  font-weight: 300;
+  src: url("../fonts/roboto-light-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: url("../fonts/roboto-regular-webfont.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  #home-link {
+    margin: 1.5 * $base-height-rem;
+
+    img {
+      width: 2.5 * $base-height-rem;
+    }
+  }
+
+  .hamberger {
+    border: none;
+    display: inline-block;
+    margin-right: 1.5rem;
+    align-self: center;
+    background-image: url("../images/hamberger-menu.svg");
+    background-size: cover;
+    width: 1rem;
+    aspect-ratio: 1;
+    background-color: white;
+    transition: 300ms;
+    &[data-close="true"] {
+      background-image: url("../images/close-hamberger.svg");
+    }
+  }
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: $orange-white;
+    position: fixed;
+    top: 2.8rem;
+    left: -100%;
+    text-align: center;
+
+    li {
+      width: 100%;
+
+      padding: 0.5rem;
+
+      &:hover {
+        background: $main-color;
+      }
+    }
+
+    &[data-visible="true"] {
+      left: 0;
+      z-index: 100;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .navigation {
+    .hamberger {
+      display: none;
+      background: yellow;
+    }
+
+    ul {
+      flex-direction: row;
+      background: none;
+      position: static;
+      align-items: center;
+      justify-content: end;
+      gap: $base-height-rem;
+
+      li {
+        width: initial;
+        border: none;
+        padding: 0;
+      }
+      .connexion {
+        border: 1px solid $main-color;
+        border-radius: $base-height-rem;
+        padding: 5px;
+      }
+      .left {
+        margin: auto;
+        border: none;
+        text-decoration: underline;
+      }
+
+      .connexion1 {
+        background: $main-color;
+        border: 1px solid black;
+        margin-right: 1.5rem;
+      }
+    }
+  }
+}
+.navigation {
+  ul {
+    .account {
+      margin-right: 1.5rem;
+      border: 1px solid $main-color;
+      padding: 5px;
+      border-radius: 8px;
+      &:hover {
+        background-color: $main-color;
+      }
+    }
+  }
+}
